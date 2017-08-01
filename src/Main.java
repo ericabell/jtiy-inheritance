@@ -55,5 +55,12 @@ public class Main {
         System.out.println(student3);
         student3.setTestScores(scores);
         System.out.println("Grade: " + student3.getGrade());
+
+        // EPIC - wrap the Integer class in MutableInteger
+        MutableInteger mutInt = new MutableInteger(3);
+        System.out.println(mutInt.getMyInt());
+        mutInt.setMyInt(4);
+        System.out.println(mutInt.getMyInt());
+
     }
 }

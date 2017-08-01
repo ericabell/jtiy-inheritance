@@ -1,5 +1,5 @@
 public class MutableInteger {
-    int myInt;
+    private int myInt;
 
     public MutableInteger(int myInt) {
         this.myInt = myInt;

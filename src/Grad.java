@@ -19,7 +19,7 @@ public class Grad extends Student {
         this.grade = grade;
     }
 
-    private void CalculateGrade() {
+    protected void CalculateGrade() {
         // calculates student's grade based on their test score average
         double total = 0;
         for( int score : testScores )

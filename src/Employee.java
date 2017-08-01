@@ -24,8 +24,8 @@ public class Employee extends Person {
     @Override
     public String toString() {
         // call the Person toString() method and add on the additional data of Employee ID number
-        return  super.toString() + " " + "Employee{" +
-                "ID=" + ID +
+        return  "Employee{" +
+                "ID=" + ID + super.toString() +
                 '}';
     }
 }

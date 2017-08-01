@@ -1,7 +1,10 @@
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 
 public class UnderGrad extends Student {
+
     public UnderGrad(String firstName, String lastName, int studentID) {
+        // use this() instead of super
         super(firstName, lastName, studentID);
     }
 
@@ -11,6 +14,8 @@ public class UnderGrad extends Student {
 
     public String getGrade() {
         // update the letter grade based on the test scores
+
+        // btw, camelCase so make it calcualteGrade
         CalculateGrade();
         return grade;
     }
@@ -19,7 +24,8 @@ public class UnderGrad extends Student {
         this.grade = grade;
     }
 
-    private void CalculateGrade() {
+    // cannot make method accessor less visable and cannot throw a broader execption
+    private void CalculateGrade() throws Exception {
         // calculates student's grade based on their test score average
         double total = 0;
         for( int score : testScores )
@@ -34,5 +40,14 @@ public class UnderGrad extends Student {
             setGrade("F");
         }
 
+    }
+
+    // cann make method accessor more visable and can throw a narrower execption
+    @Override
+    public  boolean isBig(int num) throws FileNotFoundException {
+        if (num > 6) {
+            return true;
+        }
+        return false;
     }
 }

@@ -1,13 +1,14 @@
 import java.time.LocalDate;
 
-public abstract class Person {
+// abstract class cannot be instantiated
+// if a class has at least one abstract method then the class MUST be abstract
+public class Person {
     private String firstName;
     private String lastName;
     private LocalDate dob;
 
     public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this(firstName, lastName, null);
     }
 
     public Person(String firstName, String lastName, LocalDate dob) {
@@ -15,6 +16,8 @@ public abstract class Person {
         this.lastName = lastName;
         this.dob = dob;
     }
+
+    public abstract String getSound();
 
     public String getFirstName() {
         return firstName;

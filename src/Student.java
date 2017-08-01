@@ -1,14 +1,18 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Arrays;
 
 public class Student extends Person {
     private int ID;
-    public int[] testScores;
-    public String grade;
+    protected int[] testScores;
+
+    // two options
+    //  1. remove this and calcuate in the getGrade method
+    //  2. keep it and calcualate in setTestScores and do not calculate in the getGrade method
+    protected String grade;
 
     public Student(String firstName, String lastName, int studentID) {
-        super(firstName, lastName);
-        ID = studentID;
+        this(firstName, lastName, null, studentID);
     }
 
     public Student(String firstName, String lastName, LocalDate dob, int studentID) {
@@ -42,7 +46,7 @@ public class Student extends Person {
         this.grade = grade;
     }
 
-    private void CalculateGrade() {
+    protected void CalculateGrade() throws IOException {
         // calculates student's grade based on their test score average
         double total = 0;
         for( int score : testScores )
@@ -57,6 +61,13 @@ public class Student extends Person {
             setGrade("F");
         }
 
+    }
+
+    protected boolean isBig(int num) throws IOException {
+        if (num > 5) {
+            return true;
+        }
+        return false;
     }
 
     @Override
